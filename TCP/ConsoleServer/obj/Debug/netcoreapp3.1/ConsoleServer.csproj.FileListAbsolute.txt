@@ -11,3 +11,16 @@ C:\Users\Ba2H\source\repos\TCP\ConsoleServer\obj\Debug\netcoreapp3.1\ConsoleServ
 C:\Users\Ba2H\source\repos\TCP\ConsoleServer\obj\Debug\netcoreapp3.1\ConsoleServer.dll
 C:\Users\Ba2H\source\repos\TCP\ConsoleServer\obj\Debug\netcoreapp3.1\ConsoleServer.pdb
 C:\Users\Ba2H\source\repos\TCP\ConsoleServer\obj\Debug\netcoreapp3.1\ConsoleServer.genruntimeconfig.cache
+D:\ШАГ\0 Repository\SP\TCP\ConsoleServer\bin\Debug\netcoreapp3.1\ConsoleServer.exe
+D:\ШАГ\0 Repository\SP\TCP\ConsoleServer\bin\Debug\netcoreapp3.1\ConsoleServer.deps.json
+D:\ШАГ\0 Repository\SP\TCP\ConsoleServer\bin\Debug\netcoreapp3.1\ConsoleServer.runtimeconfig.json
+D:\ШАГ\0 Repository\SP\TCP\ConsoleServer\bin\Debug\netcoreapp3.1\ConsoleServer.runtimeconfig.dev.json
+D:\ШАГ\0 Repository\SP\TCP\ConsoleServer\bin\Debug\netcoreapp3.1\ConsoleServer.dll
+D:\ШАГ\0 Repository\SP\TCP\ConsoleServer\bin\Debug\netcoreapp3.1\ConsoleServer.pdb
+D:\ШАГ\0 Repository\SP\TCP\ConsoleServer\obj\Debug\netcoreapp3.1\ConsoleServer.csprojAssemblyReference.cache
+D:\ШАГ\0 Repository\SP\TCP\ConsoleServer\obj\Debug\netcoreapp3.1\ConsoleServer.AssemblyInfoInputs.cache
+D:\ШАГ\0 Repository\SP\TCP\ConsoleServer\obj\Debug\netcoreapp3.1\ConsoleServer.AssemblyInfo.cs
+D:\ШАГ\0 Repository\SP\TCP\ConsoleServer\obj\Debug\netcoreapp3.1\ConsoleServer.csproj.CoreCompileInputs.cache
+D:\ШАГ\0 Repository\SP\TCP\ConsoleServer\obj\Debug\netcoreapp3.1\ConsoleServer.dll
+D:\ШАГ\0 Repository\SP\TCP\ConsoleServer\obj\Debug\netcoreapp3.1\ConsoleServer.pdb
+D:\ШАГ\0 Repository\SP\TCP\ConsoleServer\obj\Debug\netcoreapp3.1\ConsoleServer.genruntimeconfig.cache

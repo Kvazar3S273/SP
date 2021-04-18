@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Ba2H\\source\\repos\\TCP\\ConsoleServer\\ConsoleServer.csproj",
+      "projectUniqueName": "D:\\ШАГ\\0 Repository\\SP\\TCP\\ConsoleServer\\ConsoleServer.csproj",
       "projectName": "ConsoleServer",
-      "projectPath": "C:\\Users\\Ba2H\\source\\repos\\TCP\\ConsoleServer\\ConsoleServer.csproj",
+      "projectPath": "D:\\ШАГ\\0 Repository\\SP\\TCP\\ConsoleServer\\ConsoleServer.csproj",
       "packagesPath": "C:\\Users\\Ba2H\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Ba2H\\source\\repos\\TCP\\ConsoleServer\\obj\\",
+      "outputPath": "D:\\ШАГ\\0 Repository\\SP\\TCP\\ConsoleServer\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Ba2H\\AppData\\Roaming\\NuGet\\NuGet.Config",

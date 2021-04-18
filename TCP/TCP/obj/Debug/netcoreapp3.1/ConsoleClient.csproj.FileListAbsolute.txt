@@ -1,0 +1,13 @@
+C:\Users\Ba2H\source\repos\TCP\TCP\bin\Debug\netcoreapp3.1\ConsoleClient.exe
+C:\Users\Ba2H\source\repos\TCP\TCP\bin\Debug\netcoreapp3.1\ConsoleClient.deps.json
+C:\Users\Ba2H\source\repos\TCP\TCP\bin\Debug\netcoreapp3.1\ConsoleClient.runtimeconfig.json
+C:\Users\Ba2H\source\repos\TCP\TCP\bin\Debug\netcoreapp3.1\ConsoleClient.runtimeconfig.dev.json
+C:\Users\Ba2H\source\repos\TCP\TCP\bin\Debug\netcoreapp3.1\ConsoleClient.dll
+C:\Users\Ba2H\source\repos\TCP\TCP\bin\Debug\netcoreapp3.1\ConsoleClient.pdb
+C:\Users\Ba2H\source\repos\TCP\TCP\obj\Debug\netcoreapp3.1\ConsoleClient.csprojAssemblyReference.cache
+C:\Users\Ba2H\source\repos\TCP\TCP\obj\Debug\netcoreapp3.1\ConsoleClient.AssemblyInfoInputs.cache
+C:\Users\Ba2H\source\repos\TCP\TCP\obj\Debug\netcoreapp3.1\ConsoleClient.AssemblyInfo.cs
+C:\Users\Ba2H\source\repos\TCP\TCP\obj\Debug\netcoreapp3.1\ConsoleClient.csproj.CoreCompileInputs.cache
+C:\Users\Ba2H\source\repos\TCP\TCP\obj\Debug\netcoreapp3.1\ConsoleClient.dll
+C:\Users\Ba2H\source\repos\TCP\TCP\obj\Debug\netcoreapp3.1\ConsoleClient.pdb
+C:\Users\Ba2H\source\repos\TCP\TCP\obj\Debug\netcoreapp3.1\ConsoleClient.genruntimeconfig.cache

@@ -38,10 +38,14 @@ namespace ChatServer
                 {
                     try
                     {
+                        Random rnd = new Random();
+                        int i = rnd.Next(1, 14);
+                        Console.ForegroundColor = (System.ConsoleColor)i;
                         message = GetMessage();
                         message = String.Format("{0}: {1}", userName, message);
                         Console.WriteLine(message);
                         server.BroadcastMessage(message, this.Id);
+                        Console.ResetColor();
                     }
                     catch
                     {

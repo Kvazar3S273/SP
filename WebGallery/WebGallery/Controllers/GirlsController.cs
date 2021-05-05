@@ -20,20 +20,36 @@ namespace WebGallery.Controllers
             {
                 new GirlVM
                 {
-                    Name = "Саша Маргалова",
-                    Age=33,
-                    Height=198,
-                    Weight=95,
+                    Name = "Альонушка Ужасна",
+                    Age=63,
+                    Height=298,
+                    Weight=395,
                     Image="1.png"
                 },
                 new GirlVM
                 {
-                    Name = "Наташа Ростова",
-                    Age=18,
-                    Height=202,
-                    Weight=102,
+                    Name = "Бабуся Добрийдень",
+                    Age=78,
+                    Height=159,
+                    Weight=71,
                     Image = "2.jpg"
                 },
+                new GirlVM
+                {
+                    Name = "Дохторка Медсестра",
+                    Age=16,
+                    Height=158,
+                    Weight=55,
+                    Image="3.png"
+                },
+                new GirlVM
+                {
+                    Name = "Васіліса Прекрасна",
+                    Age=28,
+                    Height=180,
+                    Weight=65,
+                    Image = "4.jpg"
+                }
             };
             return Ok(list);
         }

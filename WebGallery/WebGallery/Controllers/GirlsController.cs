@@ -24,7 +24,7 @@ namespace WebGallery.Controllers
                     Age=63,
                     Height=298,
                     Weight=395,
-                    Image="1.png"
+                    Image="1.jpg"
                 },
                 new GirlVM
                 {
@@ -40,7 +40,7 @@ namespace WebGallery.Controllers
                     Age=16,
                     Height=158,
                     Weight=55,
-                    Image="3.png"
+                    Image="3.jpg"
                 },
                 new GirlVM
                 {

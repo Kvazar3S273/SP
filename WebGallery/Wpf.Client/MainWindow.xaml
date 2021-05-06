@@ -11,8 +11,8 @@
 
             <DataGrid x:Name ="dgGirls" 
                       HorizontalAlignment="Center"
-                      Height="236" 
-                      Margin="0,84,0,0" 
+                      Height="309" 
+                      Margin="0,10,0,0" 
                        VerticalAlignment="Top" Width="584" ColumnWidth="*" 
                       AutoGenerateColumns="False"
                       SelectedItem="{Binding SelectedItem}" >
@@ -59,7 +59,7 @@
                     </DataTemplate>
                 </DataGrid.RowDetailsTemplate>
             </DataGrid>
-            <Button x:Name ="btnGetGirls"
+            <!--<Button x:Name ="btnGetGirls"
                     Content="Отримати дані"
                     HorizontalAlignment="Left"
                     Margin="10,10,0,0"
@@ -73,7 +73,7 @@
                      TextWrapping="Wrap" 
                      VerticalAlignment="Top" 
                      Width="422" 
-                     Height="58"/>
+                     Height="58"/>-->
 
         </Grid>
     </Grid>

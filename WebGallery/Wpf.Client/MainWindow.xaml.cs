@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -24,15 +25,24 @@ namespace Wpf.Client
     /// </summary>
     public partial class MainWindow : Window
     {
+        public string URI = "https://ba2h.ga/api/Girls/search";
+
+        //public Image GetImage()
+        //{
+        //    WebClient webCli = new WebClient();
+        //    string imgURI = "https://ba2h.ga/img/";
+        //    byte[] byteImg = webCli.DownloadData(URI);
+        //    MemoryStream memoryStream = new MemoryStream(byteImg);
+        //    var imageGirl = System.Drawing.Image.FromStream(memoryStream);
+        //    return imageGirl;
+        //}
         public ObservableCollection<GirlVM> girls = new ObservableCollection<GirlVM>();
         public MainWindow()
         {
             InitializeComponent();
 
-            string URI = "https://ba2h.ga/api/Girls/search";
             WebClient webClient = new WebClient();
             string json = webClient.DownloadString(URI);
-            txb.Text = "Дані отримано!";
             
             List<GirlVM> getgirls = JsonConvert.DeserializeObject<List<GirlVM>>(json);
             //GirlVM g1 = getgirls[2];
@@ -42,10 +52,12 @@ namespace Wpf.Client
 
             dgGirls.ItemsSource = girls;
 
-        }
-        private void BtnGetGirls_Click(object sender, RoutedEventArgs e)
-        {
+
 
         }
+        //private void BtnGetGirls_Click(object sender, RoutedEventArgs e)
+        //{
+
+        //}
     }
 }

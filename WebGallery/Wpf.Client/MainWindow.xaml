@@ -20,31 +20,40 @@
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Ім'я" Binding="{Binding Name}" />
                     <DataGridTextColumn Header="Вік" Width="80" Binding="{Binding Age}" />
-                    <DataGridTextColumn Header="Ріст" Width="80" Binding="{Binding Height}" />
+                    <DataGridTextColumn Header="Зріст" Width="80" Binding="{Binding Height}" />
                     <DataGridTextColumn Header="Вага" Width="80" Binding="{Binding Weight}" />
 
 
                 </DataGrid.Columns>
                 <DataGrid.RowDetailsTemplate>
                     <DataTemplate>
-                        <DockPanel Background="#E0FFFF">
+                        <DockPanel Background="#FFC1C1C1">
                             <Image Source="{Binding Image}"
                                    Height="45"
-                                   Width="60"/>
+                                   Width="80"/>
                             <Grid Margin="0,10">
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="50" />
                                     <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="Auto" />
                                     <RowDefinition Height="Auto" />
                                     <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
                                 </Grid.RowDefinitions>
-                                <TextBlock Text="{Binding Name}" FontWeight="Bold" />
-                                <TextBlock Text="{Binding Age}" Grid.Column="1" />
-                                <TextBlock Text="{Binding Height}" FontWeight="Bold" Grid.Row="1" />
-                                <TextBlock Text="{Binding Weight}" Grid.Column="1" Grid.Row="1" />
+                                <TextBlock Text="Ім'я:" FontWeight="Bold" Grid.Row ="1" />
+                                <TextBlock Text="{Binding Name}" Foreground="Red" Grid.Row ="1" Grid.Column="1"/>
+                                
+                                <TextBlock Text= "Вік: " FontWeight="Bold" Grid.Row ="2" />
+                                <TextBlock Text= "{Binding Age}" Grid.Row ="2" Grid.Column="1"/>
+                                
+                                <TextBlock Text="Зріст: " FontWeight="Bold" Grid.Row="3" />
+                                <TextBlock Text="{Binding Height}" Grid.Row="3" Grid.Column="1"/>
+
+                                <TextBlock Text="Вага: " FontWeight="Bold" Grid.Row="4" />
+                                <TextBlock Text="{Binding Weight}" Grid.Row="4" Grid.Column="1"/>
                             </Grid>
                         </DockPanel>
                     </DataTemplate>

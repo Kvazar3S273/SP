@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -30,9 +31,17 @@ namespace Wpf.Client
 
             string URI = "https://ba2h.ga/api/Girls/search";
             WebClient webClient = new WebClient();
-            string reply = webClient.DownloadString(URI);
-            txb.Text = reply;
-            //dgGirls.ItemsSource = girls;
+            string json = webClient.DownloadString(URI);
+            txb.Text = "Дані отримано!";
+            
+            List<GirlVM> getgirls = JsonConvert.DeserializeObject<List<GirlVM>>(json);
+            //GirlVM g1 = getgirls[2];
+            //txb.Text = g1.Name;
+
+            girls = new ObservableCollection<GirlVM>(getgirls);
+
+            dgGirls.ItemsSource = girls;
+
         }
         private void BtnGetGirls_Click(object sender, RoutedEventArgs e)
         {

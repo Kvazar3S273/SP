@@ -29,8 +29,8 @@
                     <DataTemplate>
                         <DockPanel Background="#FFC1C1C1">
                             <Image Source="{Binding Image}"
-                                   Height="45"
-                                   Width="80"/>
+                                   Height="65"
+                                   Width="110"/>
                             <Grid Margin="0,10">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="50" />

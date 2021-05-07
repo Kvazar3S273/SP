@@ -24,7 +24,7 @@ namespace WebGallery.Controllers
                     Age=63,
                     Height=298,
                     Weight=395,
-                    Image="1.jpg"
+                    Image="https://ba2h.ga/img/1.jpg"
                 },
                 new GirlVM
                 {
@@ -32,7 +32,7 @@ namespace WebGallery.Controllers
                     Age=78,
                     Height=159,
                     Weight=71,
-                    Image = "2.jpg"
+                    Image = "https://ba2h.ga/img/2.jpg"
                 },
                 new GirlVM
                 {
@@ -40,7 +40,7 @@ namespace WebGallery.Controllers
                     Age=16,
                     Height=158,
                     Weight=55,
-                    Image="3.jpg"
+                    Image="https://ba2h.ga/img/3.jpg"
                 },
                 new GirlVM
                 {
@@ -48,7 +48,7 @@ namespace WebGallery.Controllers
                     Age=28,
                     Height=180,
                     Weight=65,
-                    Image = "4.jpg"
+                    Image = "https://ba2h.ga/img/4.jpg"
                 }
             };
             return Ok(list);

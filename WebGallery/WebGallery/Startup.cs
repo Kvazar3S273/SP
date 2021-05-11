@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
@@ -12,6 +14,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using WebGallery.Entities;
+using WebGallery.Entities.Identity;
 
 namespace WebGallery
 {
@@ -27,6 +31,20 @@ namespace WebGallery
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<EFDataContext>(opt => opt
+            .UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
+            
+            services.AddIdentity<AppUser, AppRole>(options =>
+            {
+                options.Password.RequireDigit = false;
+                options.Password.RequiredLength = 5;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireUppercase = false;
+                options.Password.RequireLowercase = false;
+            })
+                .AddEntityFrameworkStores<EFDataContext>()
+                .AddDefaultTokenProviders();
+            
             services.AddControllers();
             services.AddSwaggerGen();
         }
@@ -40,6 +58,9 @@ namespace WebGallery
             }
             app.UseSwagger();
             app.UseSwaggerUI();
+
+            app.ApplyMigrations();
+
             string images = "uploads";
             var directory = Path.Combine(Directory.GetCurrentDirectory(), images);
             if (!Directory.Exists(directory))

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Wpf.Client"
         mc:Ignorable="d"
-        Title="PostWindow" Height="450" Width="800">
+        Title="Додавання" Height="464" Width="317">
     <Grid>
         <Grid.Resources>
             <Style TargetType="Button" x:Key="FirstOne" >
@@ -19,23 +19,23 @@
             </Style>
 
         </Grid.Resources>
-        <Label Content="Форма додавання "
-               HorizontalAlignment="Center"
-               Margin="0,20,0,0"
+        <Label Content="Форма додавання автомобіля"
+               HorizontalAlignment="Left"
+               Margin="43,29,0,0"
                VerticalAlignment="Top"              
                Width="216"/>
-        <Label Content="Введіть імя:" 
+        <Label Content="Марка:" 
                HorizontalAlignment="Left"
-               Margin="43,92,0,0" 
+               Margin="10,92,0,0" 
                VerticalAlignment="Top"
                Width="100"/>
-        <TextBox x:Name="tbname"
+        <TextBox x:Name="tbmark"
                  HorizontalAlignment="Left"
-                 Margin="214,96,0,0"
+                 Margin="119,96,0,0"
                  Text="{Binding Name,UpdateSourceTrigger=PropertyChanged}"   
                  TextWrapping="Wrap"
                  VerticalAlignment="Top"
-                 Width="120">
+                 Width="188">
             <Validation.ErrorTemplate>
                 <ControlTemplate>
                     <StackPanel Orientation="Horizontal">
@@ -50,47 +50,21 @@
             </Validation.ErrorTemplate>
         </TextBox>
 
-        <Label Content="Сімя:"
+        <Label Content="Модель:"
                HorizontalAlignment="Left" 
-               Margin="43,139,0,0"
+               Margin="10,139,0,0"
                VerticalAlignment="Top"/>
-        <Label Content="Weight:" HorizontalAlignment="Left" 
-               Margin="43,218,0,0"
-               VerticalAlignment="Top"/>
-        <TextBox x:Name="tbweight"                   
-            HorizontalAlignment="Left"
-                   Margin="214,215,0,0"
-                   Text="{Binding Weight,UpdateSourceTrigger=PropertyChanged}"
-                   TextWrapping="Wrap"
-                   VerticalAlignment="Top"
-                   Height="41"
-                   Width="120"/>
-        <Button Content="Вибрати фото"
-                HorizontalAlignment="Left"
-                Margin="222,275,0,0"
-                VerticalAlignment="Top"
-                Style="{StaticResource FirstOne}"
-                Height="26"
-                Width="86" Click=" btn_select_photo"/>
-        <Button Content="Зберегти" 
-                HorizontalAlignment="Left"
-                Margin="222,322,0,0"
-                Style="{StaticResource FirstOne}"
-                VerticalAlignment="Top"
-                Width="86"
-                Height="26" Click="btn_save_Click"/>
-
-        <TextBox x:Name="tbfamily"
+        <TextBox x:Name="tbmodel"
                  HorizontalAlignment="Left"
-                 Margin="212,143,0,0"
+                 Margin="119,139,0,0"
                  Text="{Binding Family,UpdateSourceTrigger=PropertyChanged}"               
                  TextWrapping="Wrap"
                  VerticalAlignment="Top"
-                 Width="120">
+                 Width="188">
             <Validation.ErrorTemplate>
                 <ControlTemplate>
                     <StackPanel Orientation="Horizontal">
-                        <!-- ERROR INFO -->
+                        
                         <AdornedElementPlaceholder x:Name="textBox"/>
                         <TextBlock Margin="10,2,10,20"
                                    Text="{Binding [0].ErrorContent}"
@@ -100,5 +74,84 @@
                 </ControlTemplate>
             </Validation.ErrorTemplate>
         </TextBox>
+        <Label Content="Рік випуску:" HorizontalAlignment="Left" 
+               Margin="10,181,0,0"
+               VerticalAlignment="Top" RenderTransformOrigin="0.489,0.475"/>
+        <TextBox x:Name="tbyear"                   
+            HorizontalAlignment="Left"
+                   Margin="119,181,0,0"
+                   Text="{Binding Weight,UpdateSourceTrigger=PropertyChanged}"
+                   TextWrapping="Wrap"
+                   VerticalAlignment="Top"
+                   Height="26"
+                   Width="188"/>
+
+        <Label Content="Пальне:"
+               HorizontalAlignment="Left" 
+               Margin="13,223,0,0"
+               VerticalAlignment="Top"/>
+        <TextBox x:Name="tbfuel"
+                 HorizontalAlignment="Left"
+                 Margin="119,227,0,0"
+                 Text="{Binding Family,UpdateSourceTrigger=PropertyChanged}"               
+                 TextWrapping="Wrap"
+                 VerticalAlignment="Top"
+                 Width="188">
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        
+                        <AdornedElementPlaceholder x:Name="textBox"/>
+                        <TextBlock Margin="10,2,10,20"
+                                   Text="{Binding [0].ErrorContent}"
+                                   Foreground="Red"
+                                   FontSize="12"/>
+                    </StackPanel>
+                </ControlTemplate>
+            </Validation.ErrorTemplate>
+        </TextBox>
+
+        <Label Content="Об'єм двигуна:"
+               HorizontalAlignment="Left" 
+               Margin="13,268,0,0"
+               VerticalAlignment="Top"/>
+        <TextBox x:Name="tbcapacity"
+                 HorizontalAlignment="Left"
+                 Margin="119,268,0,0"
+                 Text="{Binding Family,UpdateSourceTrigger=PropertyChanged}"               
+                 TextWrapping="Wrap"
+                 VerticalAlignment="Top"
+                 Width="188">
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        
+                        <AdornedElementPlaceholder x:Name="textBox"/>
+                        <TextBlock Margin="10,2,10,20"
+                                   Text="{Binding [0].ErrorContent}"
+                                   Foreground="Red"
+                                   FontSize="12"/>
+                    </StackPanel>
+                </ControlTemplate>
+            </Validation.ErrorTemplate>
+        </TextBox>
+
+
+        <Button Content="Вибрати фото"
+                HorizontalAlignment="Center"
+                Margin="0,334,0,0"
+                VerticalAlignment="Top"
+                Style="{StaticResource FirstOne}"
+                Height="51"
+                Width="297" Click=" btn_select_photo" Background="#FFE2E2E2"/>
+        <Button Content="Зберегти" 
+                HorizontalAlignment="Center"
+                Margin="0,390,0,0"
+                Style="{StaticResource FirstOne}"
+                VerticalAlignment="Top"
+                Width="297"
+                Height="48" Click="btn_save_Click" Background="#FFC1C1C1"/>
+
+
     </Grid>
 </Window>

@@ -185,8 +185,8 @@ namespace Wpf.Client
             {
                 if (dgCars.SelectedItem is Car)
                 {
-                    var flowView = dgCars.SelectedItem as Car;
-                    long id = flowView.Id;
+                    var carView = dgCars.SelectedItem as Car;
+                    long id = carView.Id;
                     _id = id;
                     MessageBox.Show(_id.ToString());
                 }
@@ -202,8 +202,8 @@ namespace Wpf.Client
             {
                 if (dgCars.SelectedItem is Car)
                 {
-                    var flowerView = dgCars.SelectedItem as Car;
-                    long id = flowerView.Id;
+                    var carView = dgCars.SelectedItem as Car;
+                    long id = carView.Id;
                     _id = id;
                     MessageBox.Show(_id.ToString());
                 }

@@ -31,10 +31,10 @@ namespace Wpf.Client
         }
         private void Window_Loaded_1(object sender, RoutedEventArgs e)
         {
-            var flower = _context.Cars.FirstOrDefault(y => y.Id == _Id);
-            tbox_model.Text = flower.Model.ToString();
-            tbox_mark.Text = flower.Mark.ToString();
-            tbox_year.Text = flower.Year.ToString();
+            var car = _context.Cars.FirstOrDefault(y => y.Id == _Id);
+            tbox_model.Text = car.Model.ToString();
+            tbox_mark.Text = car.Mark.ToString();
+            tbox_year.Text = car.Year.ToString();
         }
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {

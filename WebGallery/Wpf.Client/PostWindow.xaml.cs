@@ -59,7 +59,7 @@ namespace Wpf.Client
                 var extension = System.IO.Path.GetExtension(file_selected);
                 var imageName = System.IO.Path.GetFileNameWithoutExtension(file_selected) + extension;
                 var dir = Directory.GetCurrentDirectory();
-                var saveDir = System.IO.Path.Combine(dir, "Photos");
+                var saveDir = System.IO.Path.Combine(dir, "uploads");
                 var fileSave = System.IO.Path.Combine(saveDir, imageName);
                 var bmp = ResizeImage.ResizeOrigImg(
                     new Bitmap(System.Drawing.Image.FromFile(file_selected)), 75, 75);
@@ -67,16 +67,18 @@ namespace Wpf.Client
                 file_name = fileSave;
             }
 
-            WebRequest request = WebRequest.Create("http://localhost:5000/api/Flowers/add");
+            WebRequest request = WebRequest.Create("http://localhost:5000/api/Cars/add");
             {
                 request.Method = "POST";
                 request.ContentType = "application/json";
             };
             string json = JsonConvert.SerializeObject(new
             {
-                Name = tbname.Text.ToString(),
-                Family = tbfamily.Text.ToString(),
-                Weight = int.Parse(tbweight.Text),
+                Mark = tbmark.Text.ToString(),
+                Model = tbmodel.Text.ToString(),
+                Year = int.Parse(tbyear.Text),
+                Fuel = tbfuel.Text.ToString(),
+                Capacity = float.Parse(tbcapacity.Text),
                 Image = file_name
             });
             byte[] bytes = Encoding.UTF8.GetBytes(json);

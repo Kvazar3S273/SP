@@ -14,14 +14,17 @@ namespace WebGallery.Entities
                                                    AppUserRole, IdentityUserLogin<long>,
                                                    IdentityRoleClaim<long>, IdentityUserToken<long>>
     {
-        public EFContext()
-        {
-        }
+        
         public EFDataContext(DbContextOptions<EFDataContext> options)
             :base(options)
         {
                 
         }
+
+        public EFDataContext()
+        {
+        }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)

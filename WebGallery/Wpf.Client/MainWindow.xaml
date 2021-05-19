@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Wpf.Client"
         mc:Ignorable="d"
-        Title="MainWindow" Height="346" Width="620">
+        Title="MainWindow" Height="392" Width="657">
     <Grid>
         <Grid>
 
@@ -78,11 +78,11 @@
                      VerticalAlignment="Top" 
                      Width="422" 
                      Height="58"/>-->
-            <Button x:Name ="btngetData"
+            <Button x:Name ="BtnGetData"
                     Content="Get"
                     Background="#FF94D5F3"
                     HorizontalAlignment="Left"
-                    Margin="10,284,0,0"
+                    Margin="30,298,0,0"
                     VerticalAlignment="Top"
                     Width="146" Height="36"
                     Click="BtnGetData_Click"/>
@@ -90,14 +90,14 @@
                     Content="Post"
                     HorizontalAlignment="Left"
                     Background="#FF74F78C"
-                    Margin="161,284,0,0"
+                    Margin="181,298,0,0"
                     VerticalAlignment="Top" 
                     Width="146" Height="36" Click="btnPost_Click"/>
             <Button x:Name="btnPut"
                     Content="Put"
                     HorizontalAlignment="Left"
                     Background="LightGray"
-                    Margin="312,284,0,0"
+                    Margin="332,298,0,0"
                     VerticalAlignment="Top" 
                     Width="146" Height="36" 
                     Click="btnPut_Click"/>
@@ -105,7 +105,7 @@
                     Content="Delete"
                     HorizontalAlignment="Left"
                     Background="#FFEE9797"
-                    Margin="463,284,0,0"
+                    Margin="483,298,0,0"
                     VerticalAlignment="Top" 
                     Width="146" Height="36" Click="btnDelete_Click" RenderTransformOrigin="0.5,0.529"/>
 

@@ -33,8 +33,6 @@ namespace Wpf.Client
         }
         private void btn_savechanges(object sender, RoutedEventArgs e)
         {
-            //Task.Run(() => PutRequest());      
-
             _ = PutRequest();
         }
 
@@ -42,17 +40,16 @@ namespace Wpf.Client
         {
             var n = _context.Cars.FirstOrDefault(x => x.Id == _res);
 
+            if (!string.IsNullOrEmpty(tbmark.Text))
+                n.Mark = tbmark.Text.ToString();
 
-            if (!string.IsNullOrEmpty(tbname.Text))
-                n.Name = tbname.Text.ToString();
+            if (!string.IsNullOrEmpty(tbmodel.Text))
+                n.Model = tbmodel.Text.ToString();
 
-            if (!string.IsNullOrEmpty(tbfamily.Text))
-                n.Family = tbfamily.Text.ToString();
+            if (!string.IsNullOrEmpty(tbyear.Text))
+                n.Year = int.Parse(tbyear.Text);
 
-            if (!string.IsNullOrEmpty(tbweight.Text))
-                n.Weight = int.Parse(tbweight.Text);
-
-            WebRequest request = WebRequest.Create($"http://localhost:5000/api/Flowers/{_res}");
+            WebRequest request = WebRequest.Create($"http://localhost:5000/api/Cars/{_res}");
             {
                 request.Method = "PUT";
                 request.ContentType = "application/json";
@@ -62,11 +59,9 @@ namespace Wpf.Client
             string json = JsonConvert.SerializeObject(new
             {
                 n.Id,
-                n.Name,
-                n.Family,
-                n.Weight,
-
-
+                n.Mark,
+                n.Model,
+                n.Year
             });
 
             byte[] bytes = Encoding.UTF8.GetBytes(json);

@@ -53,7 +53,6 @@ namespace Wpf.Client
             {
                 request.Method = "PUT";
                 request.ContentType = "application/json";
-
             };
 
             string json = JsonConvert.SerializeObject(new

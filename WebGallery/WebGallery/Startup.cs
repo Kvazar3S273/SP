@@ -36,11 +36,11 @@ namespace WebGallery
             
             services.AddIdentity<AppUser, AppRole>(options =>
             {
-                options.Password.RequireDigit = false;
+                options.Password.RequireDigit = true;
                 options.Password.RequiredLength = 5;
                 options.Password.RequireNonAlphanumeric = false;
-                options.Password.RequireUppercase = false;
-                options.Password.RequireLowercase = false;
+                options.Password.RequireUppercase = true;
+                options.Password.RequireLowercase = true;
             })
                 .AddEntityFrameworkStores<EFDataContext>()
                 .AddDefaultTokenProviders();
@@ -58,7 +58,6 @@ namespace WebGallery
             }
             app.UseSwagger();
             app.UseSwaggerUI();
-
             app.ApplyMigrations();
 
             string images = "uploads";
@@ -75,9 +74,7 @@ namespace WebGallery
                 });
             app.UseStaticFiles();
             app.UseRouting();
-
             app.UseAuthorization();
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

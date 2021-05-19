@@ -14,10 +14,20 @@ namespace WebGallery.Entities
                                                    AppUserRole, IdentityUserLogin<long>,
                                                    IdentityRoleClaim<long>, IdentityUserToken<long>>
     {
+        public EFContext()
+        {
+        }
         public EFDataContext(DbContextOptions<EFDataContext> options)
             :base(options)
         {
                 
+        }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (!optionsBuilder.IsConfigured)
+            {
+                optionsBuilder.UseNpgsql(@"Server=91.238.103.51;Port=5743;Database=ba2hdb;User Id=ba2h;Password=$544$B77w**G)K$t!ba2h22}");
+            }
         }
         public DbSet<Car> Cars { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)

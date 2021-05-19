@@ -1,0 +1,104 @@
+﻿<Window x:Class="Wpf.Client.PostWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Wpf.Client"
+        mc:Ignorable="d"
+        Title="PostWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.Resources>
+            <Style TargetType="Button" x:Key="FirstOne" >
+                <Setter Property="Background" Value="#AFEEEE"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="Foreground" Value="DarkBlue" />
+                <Setter Property="FontFamily" Value="Arial"/>
+            </Style>
+            <Style TargetType="TextBox" x:Key="SecondBox">
+                <Setter Property="Background" Value="#FFC0CB"/>
+            </Style>
+
+        </Grid.Resources>
+        <Label Content="Форма додавання "
+               HorizontalAlignment="Center"
+               Margin="0,20,0,0"
+               VerticalAlignment="Top"              
+               Width="216"/>
+        <Label Content="Введіть імя:" 
+               HorizontalAlignment="Left"
+               Margin="43,92,0,0" 
+               VerticalAlignment="Top"
+               Width="100"/>
+        <TextBox x:Name="tbname"
+                 HorizontalAlignment="Left"
+                 Margin="214,96,0,0"
+                 Text="{Binding Name,UpdateSourceTrigger=PropertyChanged}"   
+                 TextWrapping="Wrap"
+                 VerticalAlignment="Top"
+                 Width="120">
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+                    <StackPanel Orientation="Horizontal">
+
+                        <AdornedElementPlaceholder x:Name="textBox"/>
+                        <TextBlock Margin="10,2,10,20"
+                                   Text="{Binding [0].ErrorContent}"
+                                   Foreground="Red"
+                                   FontSize="12"/>
+                    </StackPanel>
+                </ControlTemplate>
+            </Validation.ErrorTemplate>
+        </TextBox>
+
+        <Label Content="Сімя:"
+               HorizontalAlignment="Left" 
+               Margin="43,139,0,0"
+               VerticalAlignment="Top"/>
+        <Label Content="Weight:" HorizontalAlignment="Left" 
+               Margin="43,218,0,0"
+               VerticalAlignment="Top"/>
+        <TextBox x:Name="tbweight"                   
+            HorizontalAlignment="Left"
+                   Margin="214,215,0,0"
+                   Text="{Binding Weight,UpdateSourceTrigger=PropertyChanged}"
+                   TextWrapping="Wrap"
+                   VerticalAlignment="Top"
+                   Height="41"
+                   Width="120"/>
+        <Button Content="Вибрати фото"
+                HorizontalAlignment="Left"
+                Margin="222,275,0,0"
+                VerticalAlignment="Top"
+                Style="{StaticResource FirstOne}"
+                Height="26"
+                Width="86" Click=" btn_select_photo"/>
+        <Button Content="Зберегти" 
+                HorizontalAlignment="Left"
+                Margin="222,322,0,0"
+                Style="{StaticResource FirstOne}"
+                VerticalAlignment="Top"
+                Width="86"
+                Height="26" Click="btn_save_Click"/>
+
+        <TextBox x:Name="tbfamily"
+                 HorizontalAlignment="Left"
+                 Margin="212,143,0,0"
+                 Text="{Binding Family,UpdateSourceTrigger=PropertyChanged}"               
+                 TextWrapping="Wrap"
+                 VerticalAlignment="Top"
+                 Width="120">
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <!-- ERROR INFO -->
+                        <AdornedElementPlaceholder x:Name="textBox"/>
+                        <TextBlock Margin="10,2,10,20"
+                                   Text="{Binding [0].ErrorContent}"
+                                   Foreground="Red"
+                                   FontSize="12"/>
+                    </StackPanel>
+                </ControlTemplate>
+            </Validation.ErrorTemplate>
+        </TextBox>
+    </Grid>
+</Window>

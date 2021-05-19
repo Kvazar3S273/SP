@@ -5,23 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Wpf.Client"
         mc:Ignorable="d"
-        Title="MainWindow" Height="346" Width="604">
+        Title="MainWindow" Height="346" Width="620">
     <Grid>
         <Grid>
 
-            <DataGrid x:Name ="dgGirls" 
+            <DataGrid x:Name ="dgCars" 
                       HorizontalAlignment="Center"
-                      Height="309" 
+                      Height="260" 
                       Margin="0,10,0,0" 
-                       VerticalAlignment="Top" Width="584" ColumnWidth="*" 
+                       VerticalAlignment="Top" Width="599" ColumnWidth="*" 
                       AutoGenerateColumns="False"
                       SelectedItem="{Binding SelectedItem}" >
 
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Ім'я" Binding="{Binding Name}" />
-                    <DataGridTextColumn Header="Вік" Width="80" Binding="{Binding Age}" />
-                    <DataGridTextColumn Header="Зріст" Width="80" Binding="{Binding Height}" />
-                    <DataGridTextColumn Header="Вага" Width="80" Binding="{Binding Weight}" />
+                    <DataGridTextColumn Header="Марка" Binding="{Binding Name}" />
+                    <DataGridTextColumn Header="Модель" Width="130" Binding="{Binding Age}" />
+                    <DataGridTextColumn Header="Рік" Width="80" Binding="{Binding Height}" />
+                    <DataGridTextColumn Header="Пальне" Width="100" Binding="{Binding Weight}" />
+                    <DataGridTextColumn Header="Об'єм двигуна" Width="100" Binding="{Binding Weight}" />
 
 
                 </DataGrid.Columns>
@@ -43,17 +44,20 @@
                                     <RowDefinition Height="Auto" />
                                     <RowDefinition Height="Auto" />
                                 </Grid.RowDefinitions>
-                                <TextBlock Text="Ім'я:" FontWeight="Bold" Grid.Row ="1" />
+                                <TextBlock Text="Марка:" FontWeight="Bold" Grid.Row ="1" />
                                 <TextBlock Text="{Binding Name}" Foreground="Red" Grid.Row ="1" Grid.Column="1"/>
-                                
-                                <TextBlock Text= "Вік: " FontWeight="Bold" Grid.Row ="2" />
+
+                                <TextBlock Text= "Модель: " FontWeight="Bold" Grid.Row ="2" />
                                 <TextBlock Text= "{Binding Age}" Grid.Row ="2" Grid.Column="1"/>
-                                
-                                <TextBlock Text="Зріст: " FontWeight="Bold" Grid.Row="3" />
+
+                                <TextBlock Text="Рік: " FontWeight="Bold" Grid.Row="3" />
                                 <TextBlock Text="{Binding Height}" Grid.Row="3" Grid.Column="1"/>
 
-                                <TextBlock Text="Вага: " FontWeight="Bold" Grid.Row="4" />
+                                <TextBlock Text="Пальне: " FontWeight="Bold" Grid.Row="4" />
                                 <TextBlock Text="{Binding Weight}" Grid.Row="4" Grid.Column="1"/>
+
+                                <TextBlock Text="Пальне: " FontWeight="Bold" Grid.Row="5" />
+                                <TextBlock Text="{Binding Weight}" Grid.Row="5" Grid.Column="1"/>
                             </Grid>
                         </DockPanel>
                     </DataTemplate>
@@ -74,6 +78,36 @@
                      VerticalAlignment="Top" 
                      Width="422" 
                      Height="58"/>-->
+            <Button x:Name ="btngetData"
+                    Content="Get"
+                    Background="#FF94D5F3"
+                    HorizontalAlignment="Left"
+                    Margin="10,284,0,0"
+                    VerticalAlignment="Top"
+                    Width="146" Height="36"
+                    Click="BtnGetData_Click"/>
+            <Button x:Name="btnPost"
+                    Content="Post"
+                    HorizontalAlignment="Left"
+                    Background="#FF74F78C"
+                    Margin="161,284,0,0"
+                    VerticalAlignment="Top" 
+                    Width="146" Height="36" Click="btnPost_Click"/>
+            <Button x:Name="btnPut"
+                    Content="Put"
+                    HorizontalAlignment="Left"
+                    Background="LightGray"
+                    Margin="312,284,0,0"
+                    VerticalAlignment="Top" 
+                    Width="146" Height="36" 
+                    Click="btnPut_Click"/>
+            <Button x:Name="btnDelete"
+                    Content="Delete"
+                    HorizontalAlignment="Left"
+                    Background="#FFEE9797"
+                    Margin="463,284,0,0"
+                    VerticalAlignment="Top" 
+                    Width="146" Height="36" Click="btnDelete_Click" RenderTransformOrigin="0.5,0.529"/>
 
         </Grid>
     </Grid>

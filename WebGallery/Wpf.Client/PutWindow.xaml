@@ -18,7 +18,7 @@
                 <Setter Property="Background" Value="#FFC0CB"/>
             </Style>
         </Grid.Resources>
-        <Label x:Name="lblWeight"
+        <Label x:Name="lblyear"
             Content="Рік випуску"                
                HorizontalAlignment="Left" 
                Margin="37,214,0,0"
@@ -67,14 +67,14 @@
         <TextBox x:Name="tbmark"
                  HorizontalAlignment="Left"
                    Margin="154,86,0,0"
-                   Text="{Binding Name}" 
+                   Text="{Binding Mark}" 
                    TextWrapping="Wrap"
                    VerticalAlignment="Top"
                    Height="28" Width="176"
                    RenderTransformOrigin="0.5,0.5">
 
         </TextBox>
-        <Label x:Name="lblFamily"
+        <Label x:Name="lblModel"
             Content="Модель"
                HorizontalAlignment="Left"
                FontSize="15"
@@ -84,7 +84,7 @@
         <TextBox x:Name="tbmodel"
             HorizontalAlignment="Left"
                  Margin="154,151,0,0" 
-                 Text="{Binding Family}" 
+                 Text="{Binding Model}" 
                  TextWrapping="Wrap"
                  VerticalAlignment="Top"
                  Width="176" Height="30">

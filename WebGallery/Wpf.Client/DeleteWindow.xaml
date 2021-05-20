@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Wpf.Client"
         mc:Ignorable="d"
-        Title="Видалення" Height="353" Width="328">
+        Title="Видалення" Height="353" Width="328" Loaded=" Window_Loaded_1">
     <Grid>
         <Button x:Name="btnDelete"
                 Content="Видалити автомобіль"
@@ -17,17 +17,20 @@
         <TextBox x:Name="tbox_model"
             HorizontalAlignment="Left"
                  Margin="123,113,0,0" 
-                 TextWrapping="Wrap" VerticalAlignment="Top"
+                 TextWrapping="Wrap" 
+                 VerticalAlignment="Top"
                  Width="168"/>
         <TextBox x:Name="tbox_mark"
             HorizontalAlignment="Left"
                  Margin="123,159,0,0" 
-                 TextWrapping="Wrap" VerticalAlignment="Top"
+                 TextWrapping="Wrap" 
+                 VerticalAlignment="Top"
                  Width="168"/>
         <TextBox x:Name="tbox_year"
             HorizontalAlignment="Left"
                  Margin="123,200,0,0" 
-                 TextWrapping="Wrap" VerticalAlignment="Top" 
+                 TextWrapping="Wrap" 
+                 VerticalAlignment="Top" 
                  Width="168"/>
         <Label Content="Видаляємо наступний автомобіль:"
                HorizontalAlignment="Left"

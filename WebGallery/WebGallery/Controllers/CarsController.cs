@@ -76,5 +76,21 @@ namespace WebGallery.Controllers
             _context.SaveChanges();
             return Ok(new { message = "Was added"});
         }
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete(long id)
+        {
+            var del_item = _context.Cars.Find(id);
+
+            if (del_item == null)
+            {
+                return NotFound();
+            }
+
+            _context.Cars.Remove(del_item);
+            _context.SaveChanges();
+
+            return NoContent();
+        }
     }
 }

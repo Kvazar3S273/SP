@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using WebGallery.Entities;
 using WebGallery.Entities.Data;
+using WebGallery.Models;
 
 namespace Wpf.Client
 {
@@ -32,7 +33,7 @@ namespace Wpf.Client
         }
         private void Window_Loaded_1(object sender, RoutedEventArgs e)
         {
-            Car car = _context.Cars.FirstOrDefault(y => y.Id == _Id);
+            var car = _context.Cars.FirstOrDefault(y => y.Id == _Id);
             tbox_model.Text = car.Model.ToString();
             tbox_mark.Text = car.Mark.ToString();
             tbox_year.Text = car.Year.ToString();
@@ -40,6 +41,7 @@ namespace Wpf.Client
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
             _ = DeleteRequest();
+            Close();
         }
         public async Task<bool> DeleteRequest()
         {

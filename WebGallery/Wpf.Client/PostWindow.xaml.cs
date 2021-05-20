@@ -49,6 +49,7 @@ namespace Wpf.Client
         private void btn_save_Click(object sender, RoutedEventArgs e)
         {
             _ = PostRequest();
+            Close();
         }
 
         public async Task<bool> PostRequest()

@@ -18,11 +18,11 @@
                       SelectedItem="{Binding SelectedItem}" >
 
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Марка" Binding="{Binding Name}" />
-                    <DataGridTextColumn Header="Модель" Width="130" Binding="{Binding Age}" />
-                    <DataGridTextColumn Header="Рік" Width="80" Binding="{Binding Height}" />
-                    <DataGridTextColumn Header="Пальне" Width="100" Binding="{Binding Weight}" />
-                    <DataGridTextColumn Header="Об'єм двигуна" Width="100" Binding="{Binding Weight}" />
+                    <DataGridTextColumn Header="Марка" Binding="{Binding Mark}" />
+                    <DataGridTextColumn Header="Модель" Width="130" Binding="{Binding Model}" />
+                    <DataGridTextColumn Header="Рік" Width="80" Binding="{Binding Year}" />
+                    <DataGridTextColumn Header="Пальне" Width="100" Binding="{Binding Fuel}" />
+                    <DataGridTextColumn Header="Об'єм двигуна" Width="100" Binding="{Binding Capacity}" />
 
 
                 </DataGrid.Columns>
@@ -45,19 +45,19 @@
                                     <RowDefinition Height="Auto" />
                                 </Grid.RowDefinitions>
                                 <TextBlock Text="Марка:" FontWeight="Bold" Grid.Row ="1" />
-                                <TextBlock Text="{Binding Name}" Foreground="Red" Grid.Row ="1" Grid.Column="1"/>
+                                <TextBlock Text="{Binding Mark}" Foreground="Red" Grid.Row ="1" Grid.Column="1"/>
 
                                 <TextBlock Text= "Модель: " FontWeight="Bold" Grid.Row ="2" />
-                                <TextBlock Text= "{Binding Age}" Grid.Row ="2" Grid.Column="1"/>
+                                <TextBlock Text= "{Binding Model}" Grid.Row ="2" Grid.Column="1"/>
 
                                 <TextBlock Text="Рік: " FontWeight="Bold" Grid.Row="3" />
-                                <TextBlock Text="{Binding Height}" Grid.Row="3" Grid.Column="1"/>
+                                <TextBlock Text="{Binding Year}" Grid.Row="3" Grid.Column="1"/>
 
                                 <TextBlock Text="Пальне: " FontWeight="Bold" Grid.Row="4" />
-                                <TextBlock Text="{Binding Weight}" Grid.Row="4" Grid.Column="1"/>
+                                <TextBlock Text="{Binding Fuel}" Grid.Row="4" Grid.Column="1"/>
 
-                                <TextBlock Text="Пальне: " FontWeight="Bold" Grid.Row="5" />
-                                <TextBlock Text="{Binding Weight}" Grid.Row="5" Grid.Column="1"/>
+                                <TextBlock Text="Об'єм: " FontWeight="Bold" Grid.Row="5" />
+                                <TextBlock Text="{Binding Capacity}" Grid.Row="5" Grid.Column="1"/>
                             </Grid>
                         </DockPanel>
                     </DataTemplate>
@@ -79,7 +79,7 @@
                      Width="422" 
                      Height="58"/>-->
             <Button x:Name ="BtnGetData"
-                    Content="Get"
+                    Content="Отримати"
                     Background="#FF94D5F3"
                     HorizontalAlignment="Left"
                     Margin="30,298,0,0"
@@ -87,14 +87,14 @@
                     Width="146" Height="36"
                     Click="BtnGetData_Click"/>
             <Button x:Name="btnPost"
-                    Content="Post"
+                    Content="Створити"
                     HorizontalAlignment="Left"
                     Background="#FF74F78C"
                     Margin="181,298,0,0"
                     VerticalAlignment="Top" 
                     Width="146" Height="36" Click="btnPost_Click"/>
             <Button x:Name="btnPut"
-                    Content="Put"
+                    Content="Змінити"
                     HorizontalAlignment="Left"
                     Background="LightGray"
                     Margin="332,298,0,0"
@@ -102,7 +102,7 @@
                     Width="146" Height="36" 
                     Click="btnPut_Click"/>
             <Button x:Name="btnDelete"
-                    Content="Delete"
+                    Content="Видалити"
                     HorizontalAlignment="Left"
                     Background="#FFEE9797"
                     Margin="483,298,0,0"

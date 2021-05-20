@@ -32,7 +32,7 @@
         <TextBox x:Name="tbmark"
                  HorizontalAlignment="Left"
                  Margin="119,96,0,0"
-                 Text="{Binding Name,UpdateSourceTrigger=PropertyChanged}"   
+                 Text="{Binding Mark,UpdateSourceTrigger=PropertyChanged}"   
                  TextWrapping="Wrap"
                  VerticalAlignment="Top"
                  Width="188">
@@ -57,7 +57,7 @@
         <TextBox x:Name="tbmodel"
                  HorizontalAlignment="Left"
                  Margin="119,139,0,0"
-                 Text="{Binding Family,UpdateSourceTrigger=PropertyChanged}"               
+                 Text="{Binding Model,UpdateSourceTrigger=PropertyChanged}"               
                  TextWrapping="Wrap"
                  VerticalAlignment="Top"
                  Width="188">
@@ -80,7 +80,7 @@
         <TextBox x:Name="tbyear"                   
             HorizontalAlignment="Left"
                    Margin="119,181,0,0"
-                   Text="{Binding Weight,UpdateSourceTrigger=PropertyChanged}"
+                   Text="{Binding Year,UpdateSourceTrigger=PropertyChanged}"
                    TextWrapping="Wrap"
                    VerticalAlignment="Top"
                    Height="26"
@@ -93,7 +93,7 @@
         <TextBox x:Name="tbfuel"
                  HorizontalAlignment="Left"
                  Margin="119,227,0,0"
-                 Text="{Binding Family,UpdateSourceTrigger=PropertyChanged}"               
+                 Text="{Binding Fuel,UpdateSourceTrigger=PropertyChanged}"               
                  TextWrapping="Wrap"
                  VerticalAlignment="Top"
                  Width="188">
@@ -118,7 +118,7 @@
         <TextBox x:Name="tbcapacity"
                  HorizontalAlignment="Left"
                  Margin="119,268,0,0"
-                 Text="{Binding Family,UpdateSourceTrigger=PropertyChanged}"               
+                 Text="{Binding Capacity,UpdateSourceTrigger=PropertyChanged}"               
                  TextWrapping="Wrap"
                  VerticalAlignment="Top"
                  Width="188">

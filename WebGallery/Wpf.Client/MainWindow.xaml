@@ -43,6 +43,7 @@
                                     <RowDefinition Height="Auto" />
                                     <RowDefinition Height="Auto" />
                                     <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
                                 </Grid.RowDefinitions>
                                 <TextBlock Text="Марка:" FontWeight="Bold" Grid.Row ="1" />
                                 <TextBlock Text="{Binding Mark}" Foreground="Red" Grid.Row ="1" Grid.Column="1"/>

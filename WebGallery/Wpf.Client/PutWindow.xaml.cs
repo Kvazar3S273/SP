@@ -34,6 +34,7 @@ namespace Wpf.Client
         private void btn_savechanges(object sender, RoutedEventArgs e)
         {
             _ = PutRequest();
+            Close();
         }
 
         public async Task<bool> PutRequest()
@@ -60,7 +61,10 @@ namespace Wpf.Client
                 n.Id,
                 n.Mark,
                 n.Model,
-                n.Year
+                n.Year,
+                n.Fuel,
+                n.Capacity,
+                n.Image
             });
 
             byte[] bytes = Encoding.UTF8.GetBytes(json);

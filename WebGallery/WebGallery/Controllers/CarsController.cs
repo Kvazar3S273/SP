@@ -92,5 +92,30 @@ namespace WebGallery.Controllers
 
             return NoContent();
         }
+        [HttpPut("{id}")]
+        public IActionResult Update(int id, [FromBody] Car car)
+        {
+
+            if (car == null)
+            {
+                return BadRequest();
+            }
+
+            var res = _context.Cars.FirstOrDefault(x => x.Id == id);
+
+            res.Mark = car.Mark;
+            res.Model = car.Model;
+            res.Year = car.Year;
+            res.Image = car.Image;
+
+            if (res == null)
+            {
+                return NotFound();
+            }
+
+            _context.SaveChanges();
+
+            return NoContent();
+        }
     }
 }

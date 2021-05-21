@@ -68,9 +68,9 @@ namespace Wpf.Client
         {
             if (dgCars.SelectedItem != null)
             {
-                if (dgCars.SelectedItem is Car)
+                if (dgCars.SelectedItem is CarVM)
                 {
-                    var carView = dgCars.SelectedItem as Car;
+                    var carView = dgCars.SelectedItem as CarVM;
                     long id = carView.Id;
                     _id = id;
                     MessageBox.Show(_id.ToString());

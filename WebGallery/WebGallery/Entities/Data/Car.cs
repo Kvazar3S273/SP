@@ -18,25 +18,27 @@ namespace WebGallery.Entities.Data
         /// <summary>
         /// Марка
         /// </summary>
-        [Required, StringLength(255)]
+        [Required(ErrorMessage = "Вкажіть марку автомобіля"), StringLength(255)]
         public string Mark { get; set; }
         /// <summary>
         /// Модель
         /// </summary>
-        [Required, StringLength(255)]
+        [Required(ErrorMessage = "Вкажіть модель автомобіля"), StringLength(255)]
         public string Model { get; set; }
         /// <summary>
         /// Рік
         /// </summary>
+        [Range(1950, 2021, ErrorMessage = "Не допустиме значення для року автомобіля")]
         public int Year { get; set; }
         /// <summary>
         /// Пальне
         /// </summary>
-        [Required, StringLength(255)]
+        [Required(ErrorMessage = "Вкажіть тип пального"), StringLength(255)]
         public string Fuel { get; set; }
         /// <summary>
         /// Об'єм
         /// </summary>
+        [Required(ErrorMessage = "Вкажіть об'єм двигуна")]
         public float Capacity { get; set; }
         /// <summary>
         /// Фото

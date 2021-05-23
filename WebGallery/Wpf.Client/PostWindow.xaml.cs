@@ -8,6 +8,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using Wpf.Client.Validation;
 
 namespace Wpf.Client
 {
@@ -92,6 +93,26 @@ namespace Wpf.Client
             {
                 await request.GetResponseAsync();
                 return true;
+            }
+            catch (WebException e)
+            {
+                using (WebResponse response = e.Response)
+                {
+                    HttpWebResponse httpResponse = (HttpWebResponse)response;
+                    MessageBox.Show("Error code: " + httpResponse.StatusCode);
+                    using (Stream data = response.GetResponseStream())
+                    using (var reader = new StreamReader(data))
+                    {
+                        string text = reader.ReadToEnd();
+                        var errors = JsonConvert.DeserializeObject<AddCarValidation>(text);
+                        MessageBox.Show(text);
+                        MessageBox.Show(errors.Errors.Mark[0]);
+                        MessageBox.Show(errors.Errors.Model[0]);
+                        MessageBox.Show(errors.Errors.Year[0]);
+                        MessageBox.Show(errors.Errors.Fuel[0]);
+                        return false;
+                    }
+                }
             }
             catch (Exception ex)
             {

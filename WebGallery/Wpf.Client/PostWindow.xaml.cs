@@ -2,12 +2,12 @@
 using Newtonsoft.Json;
 using System;
 using System.Drawing;
-using System.Drawing.Imaging;
 using System.IO;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using UIHelper;
 using Wpf.Client.Validation;
 
 namespace Wpf.Client
@@ -19,30 +19,31 @@ namespace Wpf.Client
     {
         private string file_selected = string.Empty;
         public string file_name { get; set; }
+        public static string New_FileName { get; set; }
         public PostWindow()
         {
             InitializeComponent();
         }
         //Кнопка для вибору фото
-        private void btn_select_photo(object sender, RoutedEventArgs e)
+        private void btn_select_photo_Click(object sender, RoutedEventArgs e)
         {
-            Bitmap image;
+            //Bitmap image;
             OpenFileDialog dlg = new OpenFileDialog();
 
-            dlg.Filter = "Image Files(*.BMP;*.JPG;*.GIF;*.PNG)|*.BMP;*.JPG;*.GIF;" +
-                "*.PNG|All files (*.*)|*.*";
+            dlg.Filter = "Image files (*.png;*.jpeg;*.jpg)|*.png;*.jpeg;*.jpg|All files (*.*)|*.*";
 
             if (dlg.ShowDialog() == true)
             {
-                try
-                {
-                    image = new Bitmap(dlg.FileName);
-                    file_selected = dlg.FileName;
-                }
-                catch
-                {
-                    MessageBox.Show("Неможливо відкрити!");
-                }
+                //try
+                //{
+                //    image = new Bitmap(dlg.FileName);
+                //    file_selected = dlg.FileName;
+                //}
+                //catch
+                //{
+                //    MessageBox.Show("Неможливо відкрити!");
+                //}
+                New_FileName = dlg.FileName;
             }
         }
 
@@ -52,28 +53,38 @@ namespace Wpf.Client
             _ = PostRequest();
             Close();
         }
+        //private async void btn_save_Click(object sender, RoutedEventArgs e)
+        //{
+        //    await Task.Run(() => PostRequest());
+        //    Close();
+        //}
+
 
         public async Task<bool> PostRequest()
         {
-            if (!string.IsNullOrEmpty(file_selected))
-            {
+            //if (!string.IsNullOrEmpty(file_selected))
+            //{
 
-                var extension = System.IO.Path.GetExtension(file_selected);
-                var imageName = System.IO.Path.GetFileNameWithoutExtension(file_selected) + extension;
-                var dir = Directory.GetCurrentDirectory();
-                var saveDir = System.IO.Path.Combine(dir, "uploads");
-                var fileSave = System.IO.Path.Combine(saveDir, imageName);
-                var bmp = ResizeImage.ResizeOrigImg(
-                    new Bitmap(System.Drawing.Image.FromFile(file_selected)), 75, 75);
-                bmp.Save(fileSave, ImageFormat.Jpeg);
-                file_name = fileSave;
-            }
+            //    var extension = System.IO.Path.GetExtension(file_selected);
+            //    var imageName = System.IO.Path.GetFileNameWithoutExtension(file_selected) + extension;
+            //    var dir = Directory.GetCurrentDirectory();
+            //    var saveDir = System.IO.Path.Combine(dir, "uploads");
+            //    var fileSave = System.IO.Path.Combine(saveDir, imageName);
+            //    var bmp = ResizeImage.ResizeOrigImg(
+            //        new Bitmap(System.Drawing.Image.FromFile(file_selected)), 75, 75);
+            //    bmp.Save(fileSave, ImageFormat.Jpeg);
+            //    file_name = fileSave;
+            //}
 
-            WebRequest request = WebRequest.Create("http://localhost:5000/api/Cars/add");
+            var app = App.Current as IGetConfiguration;
+            var serverUrl = app.Configuration.GetSection("ServerUrl").Value;
+
+            WebRequest request = WebRequest.Create($"{serverUrl}api/Cars/add");
             {
                 request.Method = "POST";
                 request.ContentType = "application/json";
             };
+            string base64 = ImageHelper.ImageConvertToBase64(New_FileName);
             string json = JsonConvert.SerializeObject(new
             {
                 Mark = tbmark.Text.ToString(),
@@ -81,7 +92,7 @@ namespace Wpf.Client
                 Year = int.Parse(tbyear.Text),
                 Fuel = tbfuel.Text.ToString(),
                 Capacity = float.Parse(tbcapacity.Text),
-                Image = file_name
+                Image = base64
             });
             byte[] bytes = Encoding.UTF8.GetBytes(json);
 

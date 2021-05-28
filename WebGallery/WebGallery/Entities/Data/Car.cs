@@ -43,7 +43,6 @@ namespace WebGallery.Entities.Data
         /// <summary>
         /// Фото
         /// </summary>
-        [StringLength(255)]
         public string Image { get; set; }
     }
 }

@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\UIHelper\UIHelper.csproj" />
     <ProjectReference Include="..\WebGallery\WebGallery.csproj" />
   </ItemGroup>
 

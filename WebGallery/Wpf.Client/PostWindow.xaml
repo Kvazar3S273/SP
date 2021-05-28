@@ -143,7 +143,7 @@
                 VerticalAlignment="Top"
                 Style="{StaticResource FirstOne}"
                 Height="51"
-                Width="297" Click=" btn_select_photo" Background="#FFE2E2E2"/>
+                Width="297" Click=" btn_select_photo_Click" Background="#FFE2E2E2"/>
         <Button Content="Зберегти" 
                 HorizontalAlignment="Center"
                 Margin="0,390,0,0"

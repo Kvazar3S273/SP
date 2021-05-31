@@ -3,11 +3,14 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using WebGallery.Entities;
 using WebGallery.Entities.Data;
 using WebGallery.Models;
+using UIHelper;
 
 namespace WebGallery.Controllers
 {
@@ -15,9 +18,9 @@ namespace WebGallery.Controllers
     [ApiController]
     public class CarsController : ControllerBase
     {
-        private readonly EFDataContext _context;
-        public string _url = "https://ba2h.ga/img/";
         private IWebHostEnvironment _webHostEnvironment;
+        private EFDataContext _context;
+        //public string _url = "https://ba2h.ga/img/";
         public CarsController(EFDataContext context, IWebHostEnvironment webHostEnvironment)
         {
             _context = context;
@@ -70,9 +73,29 @@ namespace WebGallery.Controllers
 
         [HttpPost]
         [Route("add")]
-        public IActionResult AddCar([FromBody]Car car)
+        [RequestSizeLimit(100_000_000)]
+        public IActionResult AddCar([FromBody]CarView car)
         {
-            _context.Cars.Add(car);
+            _context.Cars.Add(new Car
+            {
+                Mark = car.Mark,
+                Model = car.Model,
+                Year = car.Year,
+                Fuel = car.Fuel,
+                Capacity = car.Capacity,
+                Image = car.Image
+            });
+
+
+            var dir = Directory.GetCurrentDirectory();
+            var ext = Path.GetExtension(car.Image);
+            var dirSave = Path.Combine(dir, "Photos");
+            var imageName = Path.GetRandomFileName() + ext;
+            var imageSaveFolder = Path.Combine(dirSave, imageName);
+            var imagen = car.Image.LoadBase64();
+            imagen.Save(imageSaveFolder, ImageFormat.Jpeg);
+
+
             _context.SaveChanges();
             return Ok(new { message = "Was added"});
         }
@@ -92,6 +115,7 @@ namespace WebGallery.Controllers
 
             return NoContent();
         }
+
         [HttpPut("{id}")]
         public IActionResult Update(int id, [FromBody] Car car)
         {

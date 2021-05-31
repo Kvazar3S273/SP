@@ -41,6 +41,8 @@ namespace WebGallery
                 options.Password.RequireNonAlphanumeric = false;
                 options.Password.RequireUppercase = true;
                 options.Password.RequireLowercase = true;
+                options.User.AllowedUserNameCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+";
+                options.User.RequireUniqueEmail = false;
             })
                 .AddEntityFrameworkStores<EFDataContext>()
                 .AddDefaultTokenProviders();
@@ -58,7 +60,6 @@ namespace WebGallery
             }
             app.UseSwagger();
             app.UseSwaggerUI();
-            app.ApplyMigrations();
 
             string images = "uploads";
             var directory = Path.Combine(Directory.GetCurrentDirectory(), images);
@@ -72,6 +73,7 @@ namespace WebGallery
                     FileProvider = new PhysicalFileProvider(directory),
                     RequestPath = "/img"
                 });
+            app.ApplyMigrations();
             app.UseStaticFiles();
             app.UseRouting();
             app.UseAuthorization();

@@ -20,7 +20,12 @@ namespace WebGallery
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder.UseStartup<Startup>();
+                    webBuilder
+                    .ConfigureKestrel(serverOptions =>
+                    {
+                        serverOptions.Limits.MaxRequestBodySize = 157286400;
+                    })
+                    .UseStartup<Startup>();
                 });
     }
 }

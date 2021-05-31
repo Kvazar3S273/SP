@@ -14,6 +14,9 @@ namespace WebGallery.Entities
                                                    AppUserRole, IdentityUserLogin<long>,
                                                    IdentityRoleClaim<long>, IdentityUserToken<long>>
     {
+        public EFDataContext()
+        {
+        }
         
         public EFDataContext(DbContextOptions<EFDataContext> options)
             :base(options)
@@ -21,9 +24,6 @@ namespace WebGallery.Entities
                 
         }
 
-        public EFDataContext()
-        {
-        }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

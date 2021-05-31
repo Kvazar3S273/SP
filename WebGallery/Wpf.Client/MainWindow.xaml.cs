@@ -50,7 +50,7 @@ namespace Wpf.Client
             try
             {
                 string result = Encoding.Default.GetString(e.Result);
-                var cars = JsonConvert.DeserializeObject<List<CarVM>>(result);
+                var cars = JsonConvert.DeserializeObject<List<Car>>(result);
                 dgCars.ItemsSource = cars;
             }
             catch (Exception ex)
@@ -68,9 +68,9 @@ namespace Wpf.Client
         {
             if (dgCars.SelectedItem != null)
             {
-                if (dgCars.SelectedItem is CarVM)
+                if (dgCars.SelectedItem is Car)
                 {
-                    var carView = dgCars.SelectedItem as CarVM;
+                    var carView = dgCars.SelectedItem as Car;
                     long id = carView.Id;
                     _id = id;
                     MessageBox.Show(_id.ToString());
@@ -85,9 +85,9 @@ namespace Wpf.Client
         {
             if (dgCars.SelectedItem != null)
             {
-                if (dgCars.SelectedItem is CarVM)
+                if (dgCars.SelectedItem is Car)
                 {
-                    var carView = dgCars.SelectedItem as CarVM;
+                    var carView = dgCars.SelectedItem as Car;
                     long id = carView.Id;
                     _id = id;
                     MessageBox.Show(_id.ToString());

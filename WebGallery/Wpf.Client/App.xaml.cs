@@ -18,7 +18,7 @@ namespace Wpf.Client
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>
-    public partial class App : Application
+    public partial class App : Application, IGetConfiguration
     {
         public IServiceProvider ServiceProvider { get; private set; }
         public IConfiguration Configuration { get; set; }
@@ -28,7 +28,6 @@ namespace Wpf.Client
         protected override void OnStartup(StartupEventArgs e)
         {
             var builder = new ConfigurationBuilder()
-
              .SetBasePath(Directory.GetCurrentDirectory())
              .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
 
@@ -43,7 +42,8 @@ namespace Wpf.Client
 
             var mainWindow = ServiceProvider.GetRequiredService<MainWindow>();
             mainWindow.Show();
-            //var url = Configuration.GetSection("ServerUrl").Value;
+            var url = Configuration.GetSection("ServerUrl").Value;
+            MessageBox.Show(url);
             //MainWindow window = new MainWindow();
             //window.Show();
         }

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Wpf.Client"
         mc:Ignorable="d"
-        Title="Додавання" Height="464" Width="317">
+        Title="Додавання" Height="698" Width="317">
     <Grid>
         <Grid.Resources>
             <Style TargetType="Button" x:Key="FirstOne" >
@@ -135,7 +135,18 @@
                 </ControlTemplate>
             </Validation.ErrorTemplate>
         </TextBox>
-
+        <DataGrid 
+             Name="dg_errors"
+             AutoGenerateColumns="false"
+             Margin="13,477,10,10"
+             SelectedItem="{Binding SelectedItem}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Error"
+                                    Width="*"
+                                    Binding="{Binding Errorlist}"
+                                    FontSize="10"/>
+            </DataGrid.Columns>
+        </DataGrid>
 
         <Button Content="Вибрати фото"
                 HorizontalAlignment="Center"

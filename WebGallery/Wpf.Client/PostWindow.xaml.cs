@@ -1,8 +1,10 @@
 ﻿using Microsoft.Win32;
 using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,7 +19,7 @@ namespace Wpf.Client
     /// </summary>
     public partial class PostWindow : Window
     {
-        private string file_selected = string.Empty;
+        //private string file_selected = string.Empty;
         public string file_name { get; set; }
         public static string New_FileName { get; set; }
         public PostWindow()
@@ -34,24 +36,25 @@ namespace Wpf.Client
 
             if (dlg.ShowDialog() == true)
             {
-                //try
-                //{
-                //    image = new Bitmap(dlg.FileName);
-                //    file_selected = dlg.FileName;
-                //}
-                //catch
-                //{
-                //    MessageBox.Show("Неможливо відкрити!");
-                //}
-                New_FileName = dlg.FileName;
+                try
+                {
+                    //image = new Bitmap(dlg.FileName);
+                    New_FileName = dlg.FileName;
+                }
+                catch
+                {
+                    MessageBox.Show("Неможливо відкрити!");
+                }
+                //New_FileName = dlg.FileName;
             }
         }
 
         //Кнопка зберігання
-        private void btn_save_Click(object sender, RoutedEventArgs e)
+        private async void btn_save_Click(object sender, RoutedEventArgs e)
         {
             _ = PostRequest();
-            Close();
+            //await Task.Run(() => PostRequest());
+            //Close();
         }
         //private async void btn_save_Click(object sender, RoutedEventArgs e)
         //{
@@ -76,7 +79,8 @@ namespace Wpf.Client
             //    file_name = fileSave;
             //}
 
-            var app = App.Current as IGetConfiguration;
+            string base64 = ImageHelper.ImageConvertToBase64(New_FileName);
+            var app = Application.Current as IGetConfiguration;
             var serverUrl = app.Configuration.GetSection("ServerUrl").Value;
 
             WebRequest request = WebRequest.Create($"{serverUrl}api/Cars/add");
@@ -84,14 +88,15 @@ namespace Wpf.Client
                 request.Method = "POST";
                 request.ContentType = "application/json";
             };
-            string base64 = ImageHelper.ImageConvertToBase64(New_FileName);
+            int.TryParse(tbyear.Text, out int yearParse);
+            float.TryParse(tbcapacity.Text, out float capacityParse);
             string json = JsonConvert.SerializeObject(new
             {
                 Mark = tbmark.Text.ToString(),
                 Model = tbmodel.Text.ToString(),
-                Year = int.Parse(tbyear.Text),
+                Year = yearParse,
                 Fuel = tbfuel.Text.ToString(),
-                Capacity = float.Parse(tbcapacity.Text),
+                Capacity = capacityParse,
                 Image = base64
             });
             byte[] bytes = Encoding.UTF8.GetBytes(json);
@@ -107,23 +112,46 @@ namespace Wpf.Client
             }
             catch (WebException e)
             {
+                //using (WebResponse response = e.Response)
+                //{
+                //    HttpWebResponse httpResponse = (HttpWebResponse)response;
+                //    MessageBox.Show("Error code: " + httpResponse.StatusCode);
+                //    using (Stream data = response.GetResponseStream())
+                //    using (var reader = new StreamReader(data))
+                //    {
+                //        string text = reader.ReadToEnd();
+                //        var errors = JsonConvert.DeserializeObject<AddCarValidation>(text);
+                //        MessageBox.Show(text);
+                //        MessageBox.Show(errors.Errors.Mark[0]);
+                //        MessageBox.Show(errors.Errors.Model[0]);
+                //        MessageBox.Show(errors.Errors.Year[0]);
+                //        MessageBox.Show(errors.Errors.Fuel[0]);
+                //        return false;
+                //    }
+                //}
+
                 using (WebResponse response = e.Response)
                 {
-                    HttpWebResponse httpResponse = (HttpWebResponse)response;
-                    MessageBox.Show("Error code: " + httpResponse.StatusCode);
-                    using (Stream data = response.GetResponseStream())
-                    using (var reader = new StreamReader(data))
+
+                    HttpWebResponse web = (HttpWebResponse)response;
+
+                    MessageBox.Show("Error-->>>" + web.StatusCode);
+                    using var stream = e.Response.GetResponseStream();
+                    using var reader = new StreamReader(stream);
+                    var responces = reader.ReadToEnd();
+                    var errors = JsonConvert.DeserializeObject<AddCarValidation>(responces);
+
+
+                    List<ErrorsList> eror_list = new List<ErrorsList>();
+                    eror_list = errors.Errors.ErrorRes().Select(item => new ErrorsList
                     {
-                        string text = reader.ReadToEnd();
-                        var errors = JsonConvert.DeserializeObject<AddCarValidation>(text);
-                        MessageBox.Show(text);
-                        MessageBox.Show(errors.Errors.Mark[0]);
-                        MessageBox.Show(errors.Errors.Model[0]);
-                        MessageBox.Show(errors.Errors.Year[0]);
-                        MessageBox.Show(errors.Errors.Fuel[0]);
-                        return false;
-                    }
+                        Errorlist = item
+                    }).ToList();
+
+                    dg_errors.ItemsSource = eror_list;
                 }
+                return false;
+
             }
             catch (Exception ex)
             {

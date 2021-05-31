@@ -89,7 +89,7 @@ namespace WebGallery.Controllers
 
             var dir = Directory.GetCurrentDirectory();
             var ext = Path.GetExtension(car.Image);
-            var dirSave = Path.Combine(dir, "Photos");
+            var dirSave = Path.Combine(dir, "uploads");
             var imageName = Path.GetRandomFileName() + ext;
             var imageSaveFolder = Path.Combine(dirSave, imageName);
             var imagen = car.Image.LoadBase64();

@@ -4,7 +4,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace WebGallery.Migrations
 {
-    public partial class Addtables : Migration
+    public partial class addtblCars : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -47,6 +47,24 @@ namespace WebGallery.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "tblCars",
+                columns: table => new
+                {
+                    Id = table.Column<long>(nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Mark = table.Column<string>(maxLength: 255, nullable: false),
+                    Model = table.Column<string>(maxLength: 255, nullable: false),
+                    Year = table.Column<int>(nullable: false),
+                    Fuel = table.Column<string>(maxLength: 255, nullable: false),
+                    Capacity = table.Column<float>(nullable: false),
+                    Image = table.Column<string>(maxLength: 260, nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_tblCars", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -209,6 +227,9 @@ namespace WebGallery.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
+
+            migrationBuilder.DropTable(
+                name: "tblCars");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

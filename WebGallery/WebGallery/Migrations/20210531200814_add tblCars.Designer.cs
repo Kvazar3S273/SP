@@ -10,8 +10,8 @@ using WebGallery.Entities;
 namespace WebGallery.Migrations
 {
     [DbContext(typeof(EFDataContext))]
-    [Migration("20210511213149_add image to tblCar")]
-    partial class addimagetotblCar
+    [Migration("20210531200814_add tblCars")]
+    partial class addtblCars
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -123,8 +123,8 @@ namespace WebGallery.Migrations
                         .HasMaxLength(255);
 
                     b.Property<string>("Image")
-                        .HasColumnType("character varying(255)")
-                        .HasMaxLength(255);
+                        .HasColumnType("character varying(260)")
+                        .HasMaxLength(260);
 
                     b.Property<string>("Mark")
                         .IsRequired()

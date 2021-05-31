@@ -121,8 +121,8 @@ namespace WebGallery.Migrations
                         .HasMaxLength(255);
 
                     b.Property<string>("Image")
-                        .HasColumnType("character varying(255)")
-                        .HasMaxLength(255);
+                        .HasColumnType("character varying(260)")
+                        .HasMaxLength(260);
 
                     b.Property<string>("Mark")
                         .IsRequired()

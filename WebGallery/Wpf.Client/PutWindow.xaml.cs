@@ -83,8 +83,6 @@ namespace Wpf.Client
                 MessageBox.Show(ex.Message.ToString());
                 return false;
             }
-
         }
-
     }
 }

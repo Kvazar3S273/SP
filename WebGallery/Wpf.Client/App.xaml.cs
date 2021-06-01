@@ -23,8 +23,6 @@ namespace Wpf.Client
         public IServiceProvider ServiceProvider { get; private set; }
         public IConfiguration Configuration { get; set; }
 
-        //public IConfiguration Configuration { get; private set; }
-
         protected override void OnStartup(StartupEventArgs e)
         {
             var builder = new ConfigurationBuilder()
@@ -32,8 +30,6 @@ namespace Wpf.Client
              .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
 
             Configuration = builder.Build();
-
-            //Console.WriteLine(Configuration.GetConnectionString("BloggingDatabase"));
 
             var serviceCollection = new ServiceCollection();
             ConfigureServices(serviceCollection);
@@ -44,8 +40,6 @@ namespace Wpf.Client
             mainWindow.Show();
             var url = Configuration.GetSection("ServerUrl").Value;
             MessageBox.Show(url);
-            //MainWindow window = new MainWindow();
-            //window.Show();
         }
 
         private void ConfigureServices(IServiceCollection services)

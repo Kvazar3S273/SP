@@ -32,12 +32,8 @@ namespace Wpf.Client.Validation
         }
     }
 
-    public class AddCarValidation //: BaseValidation
+    public class AddCarValidation 
     {
         public ErrorsAddCar Errors { get; set; }
     }
-    //public abstract class BaseValidation
-    //{
-    //    public int Status { get; set; }
-    //}
 }

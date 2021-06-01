@@ -27,7 +27,6 @@ namespace Wpf.Client
     /// </summary>
     public partial class MainWindow : Window
     {
-        //public ObservableCollection<GirlVM> girls = new ObservableCollection<GirlVM>();
         private EFDataContext _context = new EFDataContext();
         public long _id { get; set; }
         public MainWindow()

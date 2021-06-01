@@ -19,8 +19,6 @@ namespace Wpf.Client
     /// </summary>
     public partial class PostWindow : Window
     {
-        //private string file_selected = string.Empty;
-        public string file_name { get; set; }
         public static string New_FileName { get; set; }
         public PostWindow()
         {
@@ -29,7 +27,6 @@ namespace Wpf.Client
         //Кнопка для вибору фото
         private void btn_select_photo_Click(object sender, RoutedEventArgs e)
         {
-            //Bitmap image;
             OpenFileDialog dlg = new OpenFileDialog();
 
             dlg.Filter = "Image files (*.png;*.jpeg;*.jpg)|*.png;*.jpeg;*.jpg|All files (*.*)|*.*";
@@ -38,14 +35,12 @@ namespace Wpf.Client
             {
                 try
                 {
-                    //image = new Bitmap(dlg.FileName);
                     New_FileName = dlg.FileName;
                 }
                 catch
                 {
                     MessageBox.Show("Неможливо відкрити!");
                 }
-                //New_FileName = dlg.FileName;
             }
         }
 
@@ -53,32 +48,10 @@ namespace Wpf.Client
         private async void btn_save_Click(object sender, RoutedEventArgs e)
         {
             _ = PostRequest();
-            //await Task.Run(() => PostRequest());
-            //Close();
         }
-        //private async void btn_save_Click(object sender, RoutedEventArgs e)
-        //{
-        //    await Task.Run(() => PostRequest());
-        //    Close();
-        //}
-
 
         public async Task<bool> PostRequest()
         {
-            //if (!string.IsNullOrEmpty(file_selected))
-            //{
-
-            //    var extension = System.IO.Path.GetExtension(file_selected);
-            //    var imageName = System.IO.Path.GetFileNameWithoutExtension(file_selected) + extension;
-            //    var dir = Directory.GetCurrentDirectory();
-            //    var saveDir = System.IO.Path.Combine(dir, "uploads");
-            //    var fileSave = System.IO.Path.Combine(saveDir, imageName);
-            //    var bmp = ResizeImage.ResizeOrigImg(
-            //        new Bitmap(System.Drawing.Image.FromFile(file_selected)), 75, 75);
-            //    bmp.Save(fileSave, ImageFormat.Jpeg);
-            //    file_name = fileSave;
-            //}
-
             string base64 = ImageHelper.ImageConvertToBase64(New_FileName);
             var app = Application.Current as IGetConfiguration;
             var serverUrl = app.Configuration.GetSection("ServerUrl").Value;
@@ -112,24 +85,6 @@ namespace Wpf.Client
             }
             catch (WebException e)
             {
-                //using (WebResponse response = e.Response)
-                //{
-                //    HttpWebResponse httpResponse = (HttpWebResponse)response;
-                //    MessageBox.Show("Error code: " + httpResponse.StatusCode);
-                //    using (Stream data = response.GetResponseStream())
-                //    using (var reader = new StreamReader(data))
-                //    {
-                //        string text = reader.ReadToEnd();
-                //        var errors = JsonConvert.DeserializeObject<AddCarValidation>(text);
-                //        MessageBox.Show(text);
-                //        MessageBox.Show(errors.Errors.Mark[0]);
-                //        MessageBox.Show(errors.Errors.Model[0]);
-                //        MessageBox.Show(errors.Errors.Year[0]);
-                //        MessageBox.Show(errors.Errors.Fuel[0]);
-                //        return false;
-                //    }
-                //}
-
                 using (WebResponse response = e.Response)
                 {
 

@@ -20,7 +20,6 @@ namespace WebGallery.Controllers
     {
         private IWebHostEnvironment _webHostEnvironment;
         private EFDataContext _context;
-        //public string _url = "https://ba2h.ga/img/";
         public CarsController(EFDataContext context, IWebHostEnvironment webHostEnvironment)
         {
             _context = context;

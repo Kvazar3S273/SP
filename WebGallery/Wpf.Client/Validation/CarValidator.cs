@@ -25,7 +25,7 @@ namespace Wpf.Client.Validation
             if (Model != null)
                 result.AddRange(Model);
             if (Capacity != null)
-                result.AddRange(Model); 
+                result.AddRange(Capacity); 
             if (Image != null)
                 result.AddRange(Image);
             return result;
